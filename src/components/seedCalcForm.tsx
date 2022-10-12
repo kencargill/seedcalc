@@ -2,6 +2,8 @@ import React, { useState } from "react"
 
 export default function SeedCalcForm () {
     const [name, setName] = useState<string>();
+    const [seedPacketValue, setSeedPacketValue] = useState<number>();
+    const [seedPacketUnit, setSeedPacketUnit] = useState<string>();
     const [seedSpacingValue, setSeedSpacingValue] = useState<number>();
     const [seedSpacingUnit, setSeedSpacingUnit] = useState<string>();
     const [perCell, setPerCell] = useState<number>();
@@ -21,6 +23,22 @@ export default function SeedCalcForm () {
                 />
             </label>
 
+            <label htmlFor="packet">
+                Seed packet contains:
+                <input 
+                onChange={(e) => setSeedPacketValue(Number(e.target.value))}
+                type="number" name="packet" 
+                />
+                <select name="packet"
+                onChange={(e) => setSeedPacketUnit(e.target.value)}
+                >
+                    <option value="seeds">seeds</option>
+                    <option value="grams">grams</option>
+                    <option value="ounce">ounces</option>
+                    <option value="pound">pounds</option>
+                </select>
+            </label>
+
             <label htmlFor="spacing">
                 What will be the plants spacing? 
                 <input 
@@ -36,7 +54,8 @@ export default function SeedCalcForm () {
             </label>
 
             <label htmlFor="cell">
-                How many seeds per cell: 
+                How many seeds per cell:
+                {/* what about direct seeding? */}
                 <input 
                 onChange={(e) => setPerCell(Number(e.target.value))}
                 type="number" name="cell" 
