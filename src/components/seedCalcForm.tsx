@@ -1,16 +1,16 @@
 import React, { useState } from "react"
+import { calculateSeeds } from "./functions";
 
 export default function SeedCalcForm () {
     const [name, setName] = useState<string>();
     const [seedPacketValue, setSeedPacketValue] = useState<number>();
     const [seedPacketUnit, setSeedPacketUnit] = useState<string>();
-    const [seedSpacingValue, setSeedSpacingValue] = useState<number>();
-    const [seedSpacingUnit, setSeedSpacingUnit] = useState<string>();
-    const [perCell, setPerCell] = useState<number>();
+    const [perFoot, setPerFoot] = useState<number>();
     const [rowFeet, setRowFeet] = useState<number>();
 
     function handleSubmit (e: React.FormEvent) {
         e.preventDefault();
+        calculateSeeds(seedPacketValue, seedPacketUnit, perFoot, rowFeet)
     }
 
     return (
@@ -40,25 +40,11 @@ export default function SeedCalcForm () {
             </label>
 
             <label htmlFor="spacing">
-                What will be the plants spacing? 
-                <input 
-                onChange={(e) => setSeedSpacingValue(Number(e.target.value))}
-                type="number" name="spacing" 
-                />
-                <select name="spacing"
-                onChange={(e) => setSeedSpacingUnit(e.target.value)}
-                >
-                    <option value="inches">inches</option>
-                    <option value="feet">feet</option>
-                </select>
-            </label>
-
-            <label htmlFor="cell">
-                How many seeds per cell:
+                How many seeds/plants (take into account how many seeds per cell, spacing etc) per foot:
                 {/* what about direct seeding? */}
                 <input 
-                onChange={(e) => setPerCell(Number(e.target.value))}
-                type="number" name="cell" 
+                onChange={(e) => setPerFoot(Number(e.target.value))}
+                type="number" name="spacing" 
                 />
             </label>
 
@@ -72,5 +58,7 @@ export default function SeedCalcForm () {
 
             <button onClick={handleSubmit}>Calculate</button>
         </div>
+
+        // when submitted, have <Results props={returned val from calculate seeds?}/> drop down appear here?
     )
 }

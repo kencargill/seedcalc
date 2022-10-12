@@ -1,17 +1,9 @@
-interface Props {
-    name: string,
-    seedPacketValue: number,
-    seedPacketUnit: string,
-    seedSpacingValue: number,
-    seedSpacingUnit: string,
-    perCell: number,
-    rowFeet: number,
-}
+import { ResultProps } from "../types/resultProps"
 
-export default function Result ({name, seedSpacingValue, seedSpacingUnit, perCell, rowFeet}: Props) {
+export default function Results ({name, numOfPackets, numOfRowFeet}: ResultProps) {
     return (
         <div>
-            <p>{} packets of {name} will plant {} row feet</p>
+            <p>{numOfPackets} packets of {name} will plant {numOfRowFeet} row feet</p>
         </div>
     )
 }
