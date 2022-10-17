@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Input } from "../types/seedCalcInput";
 import { calculateSeeds } from "./functions";
 
 export default function SeedCalcForm () {
@@ -7,10 +8,11 @@ export default function SeedCalcForm () {
     const [seedPacketUnit, setSeedPacketUnit] = useState<string>();
     const [perFoot, setPerFoot] = useState<number>();
     const [rowFeet, setRowFeet] = useState<number>();
+    const [perWeightUnit, setPerWeightUnit] = useState<number>();
 
     function handleSubmit (e: React.FormEvent) {
         e.preventDefault();
-        calculateSeeds(seedPacketValue, seedPacketUnit, perFoot, rowFeet)
+        calculateSeeds(seedPacketValue!, seedPacketUnit!, perFoot!, rowFeet!, perWeightUnit!);
     }
 
     return (
@@ -34,9 +36,17 @@ export default function SeedCalcForm () {
                 >
                     <option value="seeds">seeds</option>
                     <option value="grams">grams</option>
-                    <option value="ounce">ounces</option>
-                    <option value="pound">pounds</option>
+                    <option value="ounces">ounces</option>
+                    <option value="pounds">pounds</option>
                 </select>
+            </label>
+
+            <label htmlFor="weight">
+                If your seed packet is by weight: how many seeds are there per weight unit?
+                <input 
+                onChange={(e) => setPerWeightUnit(Number(e.target.value))}
+                type="number" name="weight"
+                />
             </label>
 
             <label htmlFor="spacing">
