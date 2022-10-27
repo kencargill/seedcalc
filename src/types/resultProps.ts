@@ -1,5 +1,7 @@
 export interface ResultProps {
     name: string,
-    numOfPackets: number,
-    numOfRowFeet: number,
+    totalPacketsNeeded: number,
+    totalSeedCountPerPacket: number,
+    totalSeedNeeded: number,
+    rowFeet: number,
 }

@@ -1,0 +1,17 @@
+#results {
+    appearance: button;
+    background-color: #401F02;
+    border: 1px solid #401F02;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#401F02 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    width: 50%;
+    line-height: 20px;
+    margin: 10px auto;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    vertical-align: middle;
+    /* white-space: nowrap; */
+  }

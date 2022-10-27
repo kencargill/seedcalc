@@ -1,0 +1,91 @@
+ #form{
+    color: #401F02;
+    width:100%;
+    background-color: #E0FFC0;
+    border: 1px solid #401F02;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 20px;
+    padding: 12px 40px;
+ }
+
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  #packet {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 5%;
+    box-sizing: border-box;
+  }
+
+  #seed-packet {
+    width: 100%
+  }
+
+button {
+    appearance: button;
+    background-color: #401F02;
+    border: 1px solid #401F02;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0,#401F02 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 20px;
+    margin: 2% 35%;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  button:focus {
+    text-decoration: none;
+  }
+  
+  button:hover {
+    text-decoration: none;
+  }
+  
+  button:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
+  }
+  
+  button:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #401F02 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+  }
+  
+  @media (max-width: 768px) {
+    button {
+      margin: auto;
+    }
+  }
