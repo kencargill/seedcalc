@@ -9,7 +9,7 @@ export default function Results ({name, totalPacketsNeeded, totalSeedCountPerPac
 
     return (
         <div id='results'>
-            <h4>results!</h4>
+            <h4>results:</h4>
             <p>total {name} seeds per packet: {totalSeedCountPerPacket} seeds </p>
             <p>total {name} seeds needed to plant {rowFeet} row feet: {totalSeedNeeded} seeds </p>
             <p>total packets needed to obtain {totalSeedNeeded} {name} seeds: {totalPacketsNeeded} packet(s)</p>
