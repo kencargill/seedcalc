@@ -47,7 +47,7 @@ export default function SeedCalcForm (this: any) {
                 onChange={(e) => setSeedPacketUnit(e.target.value)}
                 placeholder="seeds"
                 >
-                    <option>please make a unit selection</option>
+                    <option>select unit</option>
                     <option value="seeds">seeds</option>
                     <option value="grams">grams</option>
                     <option value="ounces">ounces</option>
