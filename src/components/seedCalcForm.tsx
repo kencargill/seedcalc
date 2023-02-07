@@ -4,7 +4,7 @@ import { calculateSeeds } from "./calculateSeeds";
 import Results from "./results";
 import '../css/form.css'
 
-export default function SeedCalcForm () {
+export default function SeedCalcForm (this: any) {
     const [name, setName] = useState<string>();
     const [seedPacketValue, setSeedPacketValue] = useState<number>();
     const [seedPacketUnit, setSeedPacketUnit] = useState<string>();
@@ -12,21 +12,13 @@ export default function SeedCalcForm () {
     const [rowFeet, setRowFeet] = useState<number>();
     const [perWeightUnit, setPerWeightUnit] = useState<number>();
     const [resultInfo, setResultInfo] = useState<ResultProps>();
-    const [totalPacketsNeeded, setTotalPacketsNeeded] = useState<number>();
-    const [totalSeedCountPerPacket, setTotalSeedCountPerPacket] = useState<number>();
-    const [totalSeedNeeded, setTotalSeedNeeded] = useState<number>();
 
     function handleSubmit (e: React.FormEvent) {
         e.preventDefault();
-        let results = calculateSeeds(seedPacketValue!, seedPacketUnit!, perFoot!, rowFeet!, perWeightUnit!);
+        let results = calculateSeeds(seedPacketValue!, seedPacketUnit!, perFoot!, rowFeet!, name!, perWeightUnit!);
         setResultInfo({name: name!, ... results, rowFeet: rowFeet!});
-        setTotalPacketsNeeded(resultInfo?.totalPacketsNeeded);
-        setTotalSeedCountPerPacket(resultInfo?.totalSeedCountPerPacket);
-        setTotalSeedNeeded(resultInfo?.totalSeedNeeded);
-        console.log("handleSubmit: ", resultInfo)
+        console.log("handleSubmit: ", resultInfo);
     }
-
-    console.log("outside of resultInfo: ", resultInfo, seedPacketUnit)
     
     return (
         <div>
@@ -91,17 +83,12 @@ export default function SeedCalcForm () {
                 />
             </label>
 
-            <button onClick={handleSubmit}>Calculate (may need to double click)</button>
+            <button onClick={handleSubmit}>Calculate!</button>
                 </div>
 
-            
-            <Results 
-                name={name!}
-                totalPacketsNeeded={totalPacketsNeeded!}
-                totalSeedCountPerPacket={totalSeedCountPerPacket!}
-                totalSeedNeeded={totalSeedNeeded!}
-                rowFeet={rowFeet!}  
-            />
+                <Results 
+                    {... resultInfo!}
+                />
            
         </div>
     )
